@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app12
+  labels:
+    app: app12
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app12
+  template:
+    metadata:
+      name: app12
+      labels:
+        app: app12
+    spec:
+      containers:
+        - name: app12
+          image: nginx
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+              protocol: TCP
+      restartPolicy: Always
+      
